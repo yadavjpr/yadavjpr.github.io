@@ -127,7 +127,7 @@
         var t = $(window);
         function o() {
             $("#home").css({
-                height: $(window).height() + "px"
+                height: window.innerHeight + "px"
             })
         }
         o();
