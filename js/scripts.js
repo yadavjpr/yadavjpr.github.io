@@ -125,10 +125,12 @@ $(function () {
 
 var view_height = window.innerHeight * 0.01;
 document.documentElement.style.setProperty('--vh', view_height + 'px');
+/*
 window.addEventListener('resize', function () {
     var view_height = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', view_height + 'px');
 });
+*/
 
 // Projects swipe listener
 var cards = document.querySelectorAll('[card]');
