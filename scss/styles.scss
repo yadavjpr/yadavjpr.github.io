@@ -185,7 +185,8 @@ header {
     font-size: 0.8em;
 
     &:hover {
-      color: $base-color-hover;
+      cursor: pointer;
+      color: $base-color-hover !important;
       text-decoration: none;
       background: #eee;
       border-radius: 4px;
@@ -365,7 +366,8 @@ footer {
 
 #lead {
   position: relative;
-  height: 100vh;
+  height: 100vh; /* Use vh as a fallback for browsers that do not support Custom Properties */
+  height: calc(var(--vh, 1vh) * 100);
   min-height: 500px;
   max-height: 1080px;
   background: url(../images/lead-bg.jpg);
@@ -577,7 +579,7 @@ footer {
 
   h3 {
     font-size: 1.5em;
-    font-weight: 300;
+    font-weight: 500;
     color: $heading;
     display: inline-block;
     margin: 0;
@@ -657,6 +659,7 @@ footer {
   text-align: left;
 
   h3 {
+    font-size: 1.5em;
     font-weight: 500;
     float: left;
     margin: 0;
@@ -669,9 +672,10 @@ footer {
   }
 
   h4 {
+    font-size: 1.2em;
     color: $text;
     clear: both;
-    font-weight: 500;
+    font-weight: 300;
     margin: 0 0 15px 0;
   }
 

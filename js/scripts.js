@@ -15,33 +15,6 @@
     // Remove no-js class
     $('html').removeClass('no-js');
 
-    // Animate to section when nav is clicked
-    $('header a').click(function (e) {
-
-        // Treat as normal link if no-scroll class
-        if ($(this).hasClass('no-scroll')) return;
-
-        e.preventDefault();
-        var heading = $(this).attr('href');
-        var scrollDistance = $(heading).offset().top;
-
-        $('html, body').animate({
-            scrollTop: scrollDistance + 'px'
-        }, Math.abs(window.pageYOffset - $(heading).offset().top) / 1);
-
-        // Hide the menu once clicked if mobile
-        if ($('header').hasClass('active')) {
-            $('header, body').removeClass('active');
-        }
-    });
-
-    // Scroll to top
-    $('#to-top').click(function () {
-        $('html, body').animate({
-            scrollTop: 0
-        }, 500);
-    });
-
     // Scroll to first element
     $('#lead-down span').click(function () {
         var scrollDistance = $('#lead').next().offset().top;
@@ -96,30 +69,22 @@
 
     // Shows previous project card
     $('#prev-project').click(function (e) {
-        var card_index = parseInt($("input[name='card-set']:checked")[0].id.substring(5));
-        var num_projects = $('input[name=card-set]').length;
-        $('#card-' + ((card_index - 1 < 0) ? (num_projects + (card_index - 1)) : (card_index - 1)))[0].checked = true;
+        prevCard();
     });
 
     // Shows previous project card
     $('#prev-project-mobile').click(function (e) {
-        var card_index = parseInt($("input[name='card-set']:checked")[0].id.substring(5));
-        var num_projects = $('input[name=card-set]').length;
-        $('#card-' + ((card_index - 1 < 0) ? (num_projects + (card_index - 1)) : (card_index - 1)))[0].checked = true;
+        prevCard();
     });
 
     // Shows next project card
     $('#next-project').click(function (e) {
-        var card_index = parseInt($("input[name='card-set']:checked")[0].id.substring(5));
-        var num_projects = $('input[name=card-set]').length;
-        $('#card-' + ((card_index + 1) % num_projects))[0].checked = true;
+        nextCard();
     });
 
     // Shows next project card
     $('#next-project-mobile').click(function (e) {
-        var card_index = parseInt($("input[name='card-set']:checked")[0].id.substring(5));
-        var num_projects = $('input[name=card-set]').length;
-        $('#card-' + ((card_index + 1) % num_projects))[0].checked = true;
+        nextCard();
     });
 
     $(function () {
@@ -135,9 +100,78 @@
     });
 })(jQuery);
 
+function nextCard() {
+    var card_index = parseInt($("input[name='card-set']:checked")[0].id.substring(5));
+    var num_projects = $('input[name=card-set]').length;
+    $('#card-' + ((card_index + 1) % num_projects))[0].checked = true;
+}
+
+function prevCard() {
+    var card_index = parseInt($("input[name='card-set']:checked")[0].id.substring(5));
+    var num_projects = $('input[name=card-set]').length;
+    $('#card-' + ((card_index - 1 < 0) ? (num_projects + (card_index - 1)) : (card_index - 1)))[0].checked = true;
+}
+
 document.body.addEventListener('click', function (event) {
     // filter out clicks on any other elements
     if (event.target.getAttribute('aria-disabled') == 'true') {
         event.preventDefault();
     }
 });
+
+$(function () {
+    $.scrollIt();
+});
+
+var view_height = window.innerHeight * 0.01;
+document.documentElement.style.setProperty('--vh', view_height + 'px');
+window.addEventListener('resize', function () {
+    var view_height = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', view_height + 'px');
+});
+
+// Projects swipe listener
+var cards = document.querySelectorAll('[card]');
+cards.forEach(function (card) {
+    card.addEventListener('touchstart', handleTouchStart, false);
+    card.addEventListener('touchmove', handleTouchMove, false);
+});
+
+var xDown = null;
+var yDown = null;
+
+function getTouches(evt) {
+    return evt.touches ||             // browser API
+        evt.originalEvent.touches; // jQuery
+}
+
+function handleTouchStart(evt) {
+    var firstTouch = getTouches(evt)[0];
+    xDown = firstTouch.clientX;
+    yDown = firstTouch.clientY;
+};
+
+function handleTouchMove(evt) {
+    if (!xDown || !yDown) {
+        return;
+    }
+
+    var xUp = evt.touches[0].clientX;
+    var yUp = evt.touches[0].clientY;
+
+    var xDiff = xDown - xUp;
+    var yDiff = yDown - yUp;
+
+    if (Math.abs(xDiff) > Math.abs(yDiff)) {/*most significant*/
+        if (xDiff > 0) {
+            /* left swipe */
+            nextCard();
+        } else {
+            /* right swipe */
+            prevCard();
+        }
+    }
+    /* reset values */
+    xDown = null;
+    yDown = null;
+};
