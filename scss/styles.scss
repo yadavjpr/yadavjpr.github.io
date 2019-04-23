@@ -867,6 +867,7 @@ footer {
     text-align: center;
   }
   .read-more {
+    cursor: pointer;
     color: $white;
     display: inline-block;
     padding: 0.8rem 1.8rem;
@@ -882,6 +883,7 @@ footer {
     }
   }
   .read-more-disabled {
+    cursor: not-allowed;
     color: $white;
     display: inline-block;
     padding: 0.8rem 1.8rem;
@@ -889,7 +891,6 @@ footer {
     background-color: $accent-color;
     border-radius: 200px;
     user-select: none;
-    cursor: not-allowed;
     opacity: 0.5;
     text-decoration: none;
   }
