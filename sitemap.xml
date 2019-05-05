@@ -8,14 +8,19 @@
 
 
 <url>
-  <loc>https://bertolotti.dev/</loc>
-  <lastmod>2019-04-23T12:31:23+00:00</lastmod>
-  <priority>1.00</priority>
+<loc>https://bertolotti.dev/</loc>
+<lastmod>2019-05-05T17:21:42+00:00</lastmod>
+<priority>1.00</priority>
 </url>
 <url>
-  <loc>https://bertolotti.dev/TadoJava/</loc>
-  <lastmod>2019-04-23T12:32:35+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>https://bertolotti.dev/TadoJava/</loc>
+<lastmod>2019-04-24T11:42:47+00:00</lastmod>
+<priority>0.80</priority>
+</url>
+<url>
+<loc>https://bertolotti.dev/PWSWatcher/</loc>
+<lastmod>2019-05-05T17:52:56+00:00</lastmod>
+<priority>0.80</priority>
 </url>
 
 
