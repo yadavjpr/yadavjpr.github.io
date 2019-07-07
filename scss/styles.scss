@@ -605,7 +605,6 @@ footer {
 .vtimeline-point {
   position: relative;
   display: block;
-  vertical-align: top;
   margin-bottom: 30px;
 }
 
@@ -709,6 +708,10 @@ footer {
     color: $heading;
     margin-bottom: 50px;
   }
+
+  .card-link {
+    color: $heading;
+  }
 }
 
 .project {
@@ -718,218 +721,6 @@ footer {
   overflow: hidden;
   background: $white;
   border-radius: 4px;
-}
-
-.project-image {
-  float: left;
-}
-
-.project-info {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  margin-left: 300px;
-  padding: 15px;
-
-  a {
-    color: $heading;
-  }
-
-  h3 {
-    font-size: 1.5em;
-    font-weight: 300;
-    color: $heading;
-    margin: 0 0 15px 0;
-  }
-
-  h4 {
-    font-size: 16px;
-    font-weight: 300;
-    color: $heading;
-  }
-
-  p {
-    color: $text;
-    margin: 0 0 15px 0;
-    font-size: 0.9em;
-  }
-}
-
-.no-image {
-  .project-info {
-    position: relative;
-    margin: 0;
-    padding: 30px 15px;
-    transform: none;
-  }
-}
-
-#more-projects {
-  display: none;
-}
-
-[card-stack] {
-  will-change: transform;
-  width: 400px;
-  height: 450px;
-  flex: none;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 1rem;
-}
-
-[name="card-set"] {
-  display: none;
-  &:checked {
-    //Card 1
-    + [card] {
-      display: flex;
-      opacity: 1;
-      @if ($use-filters) {
-        filter: blur(0);
-      }
-      transform: translateX(0) scale(1);
-      transition: transform 1s, opacity 1s, filter 0.25s;
-      transition-delay: 0.3s;
-      z-index: 0;
-      //card 2
-      ~ [card] {
-        z-index: -1;
-        display: flex;
-        opacity: 0.9;
-        @if ($use-filters) {
-          filter: blur(1px);
-        }
-        transform: translateX(1.2rem) scale(0.95);
-        transition: transform 1.5s, opacity 1.5s, filter 0.5s;
-        transition-delay: 0.4s;
-        //card 3
-        ~ [card] {
-          z-index: -2;
-          display: flex;
-          opacity: 0.7;
-          @if ($use-filters) {
-            filter: blur(2px);
-          }
-          transform: translateX(2.4rem) scale(0.9);
-          transition: transform 2s, opacity 2s, filter 1.5s;
-          transition-delay: 0.5s;
-          //card 4... you know what... I shouldn't have to explain anymore.
-          ~ [card] {
-            z-index: -3;
-            display: flex;
-            opacity: 0.5;
-            @if ($use-filters) {
-              filter: blur(3px);
-            }
-            transform: translateX(3.6rem) scale(0.85);
-            transition: transform 2.5s, opacity 2.5s, filter 2s;
-            transition-delay: 0.7s;
-            //card 5+
-            ~ [card] {
-              z-index: -4;
-              display: flex;
-              opacity: 0;
-              @if ($use-filters) {
-                filter: blur(4px);
-              }
-              transform: translateX(5rem) scale(0.8);
-              transition: transform 3s, opacity 3s, filter 2.5s;
-              transition-delay: 0.8s;
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-[card] {
-  display: flex;
-  will-change: filter opacity transform;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  background-color: white;
-  opacity: 0;
-  transform: translateY(0) translateX(calc(-100% - 1rem)) scale(1);
-  transition: transform 0.5s, opacity 0.2s 0.3s, filter 0.1s;
-  transition-timing-function: ease-in;
-  box-shadow: 0 0.2rem 0 rgba(black, 0.2);
-  border-radius: 5px;
-  justify-content: center;
-  align-items: center;
-  z-index: 1;
-  height: 450px;
-  .content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    padding: 2rem;
-    text-align: center;
-  }
-  .read-more {
-    cursor: pointer;
-    color: $white;
-    display: inline-block;
-    padding: 0.8rem 1.8rem;
-    margin: 1rem;
-    background-color: $accent-color;
-    border-radius: 200px;
-    user-select: none;
-    &:hover {
-      background-color: lighten($accent-color, 10%);
-    }
-    &:active {
-      background-color: darken($accent-color, 10%);
-    }
-  }
-  .read-more-disabled {
-    cursor: not-allowed;
-    color: $white;
-    display: inline-block;
-    padding: 0.8rem 1.8rem;
-    margin: 1rem;
-    background-color: $accent-color;
-    border-radius: 200px;
-    user-select: none;
-    opacity: 0.5;
-    text-decoration: none;
-  }
-  a,
-  h4 {
-    color: darken($text, 10%);
-  }
-}
-.nav-projects {
-  z-index: 2;
-  margin-bottom: auto;
-  margin-top: auto;
-}
-
-#prev-project,
-#next-project {
-  font-size: 1.5em;
-  color: $white;
-  display: inline-block;
-  padding: 1rem 2rem;
-  margin: 1rem;
-  background-color: $accent-color;
-  border-radius: 200px;
-  user-select: none;
-  z-index: 2;
-  &:hover {
-    background-color: lighten($accent-color, 10%);
-  }
-  &:active {
-    background-color: darken($accent-color, 10%);
-  }
-}
-
-#prev-project-mobile,
-#next-project-mobile {
-  display: none;
 }
 
 /*
@@ -1116,80 +907,6 @@ footer {
 
 // Medium Devices
 @media only screen and (max-width: 992px) {
-  #next-project {
-    margin-top: 2.5rem;
-  }
-
-  [card-stack] {
-    width: 100%;
-  }
-
-  [name="card-set"] {
-    display: none;
-    &:checked {
-      //Card 1
-      + [card] {
-        display: flex;
-        opacity: 1;
-        @if ($use-filters) {
-          filter: blur(0);
-        }
-        transform: translateY(0) scale(1);
-        transition: transform 1s, opacity 1s, filter 0.25s;
-        transition-delay: 0.3s;
-        z-index: 0;
-        //card 2
-        ~ [card] {
-          z-index: -1;
-          display: flex;
-          opacity: 0.9;
-          @if ($use-filters) {
-            filter: blur(1px);
-          }
-          transform: translateY(1.2rem) scale(0.95);
-          transition: transform 1.5s, opacity 1.5s, filter 0.5s;
-          transition-delay: 0.4s;
-          //card 3
-          ~ [card] {
-            z-index: -2;
-            display: flex;
-            opacity: 0.7;
-            @if ($use-filters) {
-              filter: blur(2px);
-            }
-            transform: translateY(2.4rem) scale(0.9);
-            transition: transform 2s, opacity 2s, filter 1.5s;
-            transition-delay: 0.5s;
-            //card 4... you know what... I shouldn't have to explain anymore.
-            ~ [card] {
-              z-index: -3;
-              display: flex;
-              opacity: 0.5;
-              @if ($use-filters) {
-                filter: blur(3px);
-              }
-              transform: translateY(3.6rem) scale(0.85);
-              transition: transform 2.5s, opacity 2.5s, filter 2s;
-              transition-delay: 0.7s;
-              //card 5+
-              ~ [card] {
-                z-index: -4;
-                display: flex;
-                opacity: 0;
-                @if ($use-filters) {
-                  filter: blur(4px);
-                }
-                transform: translateY(5rem) scale(0.8);
-                transition: transform 3s, opacity 3s, filter 2.5s;
-                transition-delay: 0.8s;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
   #lead {
     padding: 100px 15px;
 
@@ -1213,34 +930,6 @@ footer {
 
 // Small Devices
 @media only screen and (max-width: 767px) {
-  .show-mobile {
-    display: block;
-  }
-
-  .hide-mobile {
-    display: none;
-  }
-
-  #prev-project-mobile,
-  #next-project-mobile {
-    font-size: 1.5em;
-    color: $white;
-    display: inline-block;
-    padding: 1rem 2rem;
-    margin: 1rem;
-    margin-top: 2.5rem;
-    background-color: $accent-color;
-    border-radius: 200px;
-    user-select: none;
-    z-index: 2;
-    &:hover {
-      background-color: lighten($accent-color, 10%);
-    }
-    &:active {
-      background-color: darken($accent-color, 10%);
-    }
-  }
-
   #about {
     padding: 75px 15px;
     border-bottom: 1px solid $border;
@@ -1388,18 +1077,6 @@ footer {
     span {
       float: none;
     }
-  }
-
-  .project-image {
-    display: none;
-  }
-
-  .project-info {
-    position: relative;
-    margin: 0;
-    padding: 30px 15px;
-    top: auto;
-    transform: none;
   }
 
   footer {
