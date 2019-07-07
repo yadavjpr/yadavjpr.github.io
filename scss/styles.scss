@@ -91,6 +91,7 @@ $use-filters: false;
 .show-mobile {
   display: none;
 }
+
 .hide-mobile {
   display: block;
 }
@@ -1115,36 +1116,8 @@ footer {
 
 // Medium Devices
 @media only screen and (max-width: 992px) {
-  .show-mobile {
-    display: block;
-  }
-
-  .hide-mobile {
-    display: none;
-  }
-
   #next-project {
     margin-top: 2.5rem;
-  }
-
-  #prev-project-mobile,
-  #next-project-mobile {
-    font-size: 1.5em;
-    color: $white;
-    display: inline-block;
-    padding: 1rem 2rem;
-    margin: 1rem;
-    margin-top: 2.5rem;
-    background-color: $accent-color;
-    border-radius: 200px;
-    user-select: none;
-    z-index: 2;
-    &:hover {
-      background-color: lighten($accent-color, 10%);
-    }
-    &:active {
-      background-color: darken($accent-color, 10%);
-    }
   }
 
   [card-stack] {
@@ -1240,6 +1213,34 @@ footer {
 
 // Small Devices
 @media only screen and (max-width: 767px) {
+  .show-mobile {
+    display: block;
+  }
+
+  .hide-mobile {
+    display: none;
+  }
+
+  #prev-project-mobile,
+  #next-project-mobile {
+    font-size: 1.5em;
+    color: $white;
+    display: inline-block;
+    padding: 1rem 2rem;
+    margin: 1rem;
+    margin-top: 2.5rem;
+    background-color: $accent-color;
+    border-radius: 200px;
+    user-select: none;
+    z-index: 2;
+    &:hover {
+      background-color: lighten($accent-color, 10%);
+    }
+    &:active {
+      background-color: darken($accent-color, 10%);
+    }
+  }
+
   #about {
     padding: 75px 15px;
     border-bottom: 1px solid $border;
