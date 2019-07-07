@@ -282,6 +282,10 @@ footer {
 
 .social {
   text-align: left;
+  position: absolute;
+  bottom: 0;
+  display: inherit;
+  right: 0;
 
   ul {
     margin: 5px 0 0 0;
@@ -306,16 +310,12 @@ footer {
 }
 
 .btn-rounded-black {
-  display: inline-block;
   color: $text;
   position: absolute;
   right: 0px;
   padding: 5px 15px;
   border: 3px solid $text;
-  border-radius: 30px;
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-top: 5px;
+  border-top-right-radius: 15px;
   @include transition();
 
   &:hover {
@@ -501,24 +501,27 @@ footer {
 
   .profile-image img {
     position: relative;
-    width: 100%;
     z-index: 1;
-    -webkit-box-shadow: 0 0 85px 0 rgba(0, 0, 0, 0.14);
-    box-shadow: 0 0 85px 0 rgba(0, 0, 0, 0.14);
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+    width: 250px;
+    height: 250px;
   }
 
-  .profile-image:before {
-    content: "";
-    background-color: $background-alt;
-    width: -moz-calc(100% - 30px);
-    width: -webkit-calc(100% - 30px);
-    width: -o-calc(100% - 30px);
-    width: calc(100% - 30px);
-    height: 100%;
-    position: absolute;
-    bottom: -10%;
-    left: -10%;
-    z-index: 0;
+  .about-row {
+    border: 2px #f2f2f5 solid;
+    background-color: #f2f2f5;
+    border-radius: 15px;
+  }
+  
+  .about-desc-container {
+    display: table;
+    height: 250px;
+  }
+  
+  .about-desc {
+    display: table-cell;
+    vertical-align: middle;
   }
 }
 
@@ -1233,27 +1236,101 @@ footer {
       font-size: 1.75em;
     }
   }
-
-  #about {
-    text-align: center;
-
-    p {
-      text-align: left;
-      font-size: 1em;
-    }
-
-    .profile-image img {
-      margin-bottom: 15px;
-    }
-
-    .profile-image:before {
-      display: none;
-    }
-  }
 }
 
 // Small Devices
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
+  #about {
+    padding: 75px 15px;
+    border-bottom: 1px solid $border;
+  
+    h2 {
+      color: $heading;
+    }
+  
+    p {
+      color: $text;
+      margin: 0;
+      text-align: left;
+      font-size: 1em;
+    }
+    
+    .profile-image img {
+      position: relative;
+      z-index: 1;
+      border-radius: 0;
+      border-top-right-radius: 15px;
+      border-top-left-radius: 15px;
+      width: 100%;
+      height: auto;
+    }
+
+    .about-row {
+      border: 2px #f2f2f5 solid;
+      background-color: #f2f2f5;
+      border-radius: 15px;
+    }
+    
+    .about-desc-container {
+      padding: 0;
+      padding-top: 15px;
+      display: block;
+      height: auto;
+      text-align: center;
+    }
+    
+    .about-desc {
+      padding: 15px;
+      padding-top: 30px;
+      padding-bottom: 0;
+      display: table-cell;
+      vertical-align: middle;
+    }
+  }
+
+  .btn-rounded-black {
+    position: static;
+    color: $text;
+    padding: 5px 15px;
+    border: 3px solid $text;
+    border-radius: 15px;
+    @include transition();
+  
+    &:hover {
+      color: $white;
+      background: $text;
+      text-decoration: none;
+    }
+  }
+
+  .social {
+    position: static;
+    text-align: center;
+    display: inherit;
+    font-size: 1em;
+  
+    ul {
+      margin: 5px 0 0 0;
+      padding: 0;
+    }
+  
+    li {
+      display: inline-block;
+      font-size: 1.25em;
+      list-style: none;
+    }
+  
+    a {
+      display: block;
+      color: $text;
+      padding: 10px;
+  
+      &:hover {
+        color: $base-color;
+      }
+    }
+  }
+
   header {
     position: fixed;
     left: 0;
@@ -1326,11 +1403,6 @@ footer {
 
   footer {
     text-align: center;
-  }
-
-  .social {
-    text-align: center;
-    font-size: 1em;
   }
 }
 
