@@ -88,6 +88,16 @@ $use-filters: false;
 ----------------------------
 */
 
+.accent-dark {
+  color: $heading;
+  @include transition();
+}
+
+.accent-dark:hover {
+  color: darken($heading, 10%);
+  text-decoration: none;
+}
+
 .show-mobile {
   display: none;
 }
@@ -711,6 +721,11 @@ footer {
 
   .card-link {
     color: $heading;
+    @include transition();
+  }
+
+  .card-link:hover {
+    color: darken($heading, 10%);
   }
 }
 
