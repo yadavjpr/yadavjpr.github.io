@@ -33,6 +33,11 @@ File Contents:
 ------------------------
 */
 
+@font-face {
+  font-family: TheSecret;
+  src: url(../webfonts/TheSecret-Regular.otf);
+}
+
 // Define base and accent colors
 $accent-color: #ffd902;
 $base-color: #181818;
@@ -351,9 +356,8 @@ footer {
 .heading {
   position: relative;
   display: inline-block;
-  font-size: 2.2em;
-  font-weight: 900;
-  margin: 0 0 30px 0;
+  font: bold 7em TheSecret, arial, sans-serif;
+  color: $heading;
 }
 
 .background-alt {
@@ -492,10 +496,6 @@ footer {
 #about {
   padding: 75px 15px 45px 15px;
 
-  h2 {
-    color: $heading;
-  }
-
   p {
     color: $text;
     margin: 0;
@@ -537,10 +537,6 @@ footer {
 #experience {
   padding: 50px 15px;
   text-align: center;
-
-  h2 {
-    color: $heading;
-  }
 }
 
 #experience-timeline {
@@ -647,11 +643,6 @@ footer {
 #education {
   padding: 50px 15px 20px 15px;
   text-align: center;
-
-  h2 {
-    color: $heading;
-    margin-bottom: 50px;
-  }
 }
 
 .education-block {
@@ -705,11 +696,6 @@ footer {
 #projects {
   padding: 50px 15px;
   text-align: center;
-
-  h2 {
-    color: $heading;
-    margin-bottom: 50px;
-  }
 
   .card {
     box-shadow: $shadow;
