@@ -163,11 +163,20 @@ body {
 }
 
 @keyframes dropHeader {
-  0% {
+  from {
     transform: translateY(-100%);
   }
-  100% {
+  to {
     transform: translateY(0);
+  }
+}
+
+@keyframes closeHeader {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(-100%);
   }
 }
 
@@ -225,6 +234,14 @@ header {
     position: fixed;
     z-index: 999;
   }
+
+  &.inactive {
+    display: inline-block;
+    animation-name: closeHeader;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+    animation-duration: 0.75s;
+  }
 }
 
 #menu {
@@ -244,19 +261,19 @@ header {
   z-index: 20;
   padding: 0 7px;
   border-radius: 4px;
-  background: $background;
+  background: $background-alt;
 }
 
 #mobile-menu-close {
   display: none;
   text-align: right;
   width: 100%;
-  background: $background;
+  background: $background-alt;
   font-size: 1.5em;
-  padding-right: 15px;
-  padding-top: 10px;
+  padding: 10px;
   cursor: pointer;
   color: $base-color;
+  border-bottom: 1px solid $border;
 
   span {
     font-size: 0.5em;
@@ -1021,15 +1038,16 @@ footer {
   header {
     position: fixed;
     left: 0;
-    display: none;
     z-index: 999;
-    animation: none;
     bottom: 0;
     height: 100%;
+    display: none;
 
     ul {
       display: inline-block;
-      background: $background;
+      background: $background-alt;
+      padding: 0;
+      box-shadow: $shadow;
     }
 
     a {
@@ -1045,13 +1063,13 @@ footer {
   #menu {
     height: 100%;
     overflow-y: auto;
-    box-shadow: none;
     border-radius: 0;
     width: 100%;
 
     li {
       display: block;
-      margin-bottom: 10px;
+      padding: 10px;
+      border-bottom: 1px solid $border;
     }
   }
 
