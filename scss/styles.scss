@@ -38,10 +38,16 @@ File Contents:
   src: url(../webfonts/TheSecret-Regular.otf);
 }
 
+@font-face {
+  font-family: Roboto;
+  src: url(../webfonts/Roboto-Regular.ttf);
+}
+
 // Define base and accent colors
-$accent-color: #ffd902;
+$accent-color: #ffd000;
 $base-color: #181818;
 $base-color-hover: darken($base-color, 10%);
+$menu-hover: #eee;
 $white: #fff;
 
 // Define background colors
@@ -54,11 +60,11 @@ $border: #dcd9d9;
 // Define text colors
 //$heading: #374054;
 $heading: darken($accent-color, 10%);
-$text: #74808a;
+$text: #484b4e;
 $use-filters: false;
 
 // iOS style box shadow
-$shadow: 0 20px 30px -12.125px rgba(0,0,0,0.3);
+$shadow: 0 20px 30px -12.125px rgba(0, 0, 0, 0.3);
 
 /*
 ---------------------
@@ -96,14 +102,32 @@ $shadow: 0 20px 30px -12.125px rgba(0,0,0,0.3);
 ----------------------------
 */
 
-.accent-dark {
-  color: $heading;
+::selection {
+  background-color: lighten($accent-color, 20%);
+}
+
+.inset {
+  background-color: $heading;
+  color: transparent !important;
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.3);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
   @include transition();
 }
 
-.accent-dark:hover {
-  color: darken($heading, 10%);
+:not(.heading).inset:hover {
+  background-color: darken($heading, 10%) !important;
   text-decoration: none;
+  color: transparent;
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.3);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+}
+
+.card {
+  border: 1px solid $border;
 }
 
 .show-mobile {
@@ -116,7 +140,7 @@ $shadow: 0 20px 30px -12.125px rgba(0,0,0,0.3);
 
 body {
   background-color: $background;
-  font: 16px "Lato", sans-serif;
+  font: 16px Roboto, sans-serif;
 
   &.active {
     overflow: hidden;
@@ -144,7 +168,7 @@ body {
       h4 {
         font-size: 1.2em;
         font-weight: 300;
-        color: #7e8890;
+        color: $text;
         margin: 0 0 15px 0;
       }
 
@@ -216,7 +240,7 @@ header {
       cursor: pointer;
       color: $base-color-hover !important;
       text-decoration: none;
-      background: #eee;
+      background: $menu-hover;
       border-radius: 4px;
     }
 
@@ -349,7 +373,7 @@ footer {
 .btn-rounded-black {
   color: $text;
   position: absolute;
-  right: 0px;
+  right: -1px;
   padding: 5px 15px;
   border: 3px solid $text;
   border-top-right-radius: 15px;
@@ -373,7 +397,8 @@ footer {
 .heading {
   position: relative;
   display: inline-block;
-  font: bold 7em TheSecret, arial, sans-serif;
+  font: 7em TheSecret, arial, sans-serif;
+  width: 100%;
   color: $heading;
 }
 
@@ -437,7 +462,7 @@ footer {
   }
 
   h2 {
-    color: lighten($accent-color, 25%);
+    color: $accent-color;
     font-weight: 500;
     font-size: 2.25em;
     margin-bottom: 15px;
@@ -528,17 +553,17 @@ footer {
   }
 
   .about-row {
-    border: 1px solid #e6e6e6;
     background-color: $white;
     border-radius: 15px;
     box-shadow: $shadow;
+    border: 1px solid $border;
   }
-  
+
   .about-desc-container {
     display: table;
     height: 250px;
   }
-  
+
   .about-desc {
     display: table-cell;
     vertical-align: middle;
@@ -589,12 +614,12 @@ footer {
 .vtimeline-content {
   margin-left: 350px;
   background: $background-alt;
-  border: 1px solid #e6e6e6;
   padding: 15px;
   border-radius: 3px;
   text-align: left;
   box-shadow: $shadow;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
+  border: 1px solid $border;
 
   h3 {
     font-size: 1.5em;
@@ -607,7 +632,7 @@ footer {
   h4 {
     font-size: 1.2em;
     font-weight: 300;
-    color: #7e8890;
+    color: $text;
     margin: 0 0 15px 0;
   }
 
@@ -649,7 +674,7 @@ footer {
   left: 0;
   top: 10px;
   font-weight: 300;
-  color: #374054;
+  color: $text;
 }
 
 /*
@@ -671,7 +696,7 @@ footer {
   background-color: $background-alt;
   text-align: left;
   box-shadow: $shadow;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
 
   h3 {
     font-size: 1.5em;
@@ -785,6 +810,7 @@ footer {
   padding: 50px 15px;
   background: $base-color;
   text-align: center;
+  box-shadow: $shadow;
 
   h2 {
     margin: 0 0 15px 0;
@@ -950,18 +976,18 @@ footer {
 @media only screen and (max-width: 767px) {
   #about {
     padding: 75px 15px 45px 15px;
-  
+
     h2 {
       color: $heading;
     }
-  
+
     p {
       color: $text;
       margin: 0;
       text-align: left;
       font-size: 1em;
     }
-    
+
     .profile-image img {
       position: relative;
       z-index: 1;
@@ -973,11 +999,11 @@ footer {
     }
 
     .about-row {
-      border: 1px solid #e6e6e6;
       background-color: $white;
       border-radius: 15px;
+      border: 1px solid $border;
     }
-    
+
     .about-desc-container {
       padding: 0;
       padding-top: 15px;
@@ -985,7 +1011,7 @@ footer {
       height: auto;
       text-align: center;
     }
-    
+
     .about-desc {
       padding: 15px;
       padding-top: 30px;
@@ -1002,7 +1028,7 @@ footer {
     border: 3px solid $text;
     border-radius: 15px;
     @include transition();
-  
+
     &:hover {
       color: $white;
       background: $text;
@@ -1015,23 +1041,23 @@ footer {
     text-align: center;
     display: inherit;
     font-size: 1em;
-  
+
     ul {
       margin: 5px 0 0 0;
       padding: 0;
     }
-  
+
     li {
       display: inline-block;
       font-size: 1.25em;
       list-style: none;
     }
-  
+
     a {
       display: block;
       color: $text;
       padding: 10px;
-  
+
       &:hover {
         color: $base-color;
       }
