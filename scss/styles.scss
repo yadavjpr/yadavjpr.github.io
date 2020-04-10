@@ -443,9 +443,6 @@ footer {
 
   .main-title {
     margin: 0;
-  }
-
-  .main-title {
     color: $white;
     font-weight: 900;
     font-size: 5em;
@@ -952,10 +949,17 @@ footer {
     position: relative;
 
     h1 {
+      font-size: inherit;
+      font-weight: inherit;
+      margin: 0;
+      line-height: inherit;
+    }
+
+    .main-title {
       font-size: 3em;
     }
 
-    h2 {
+    .subtitle {
       font-size: 1.75em;
     }
   }
@@ -1092,14 +1096,22 @@ footer {
   }
 
   #lead-content {
+
     h1 {
+      font-size: inherit;
+      font-weight: inherit;
+      margin: 0;
+      line-height: inherit;
+    }
+
+    .main-title {
       font-size: 2em;
     }
 
-    h2 {
+    .subtitle {
       font-size: 1.3em;
     }
-
+    
     a {
       padding: 10px 20px;
     }
@@ -1120,11 +1132,19 @@ footer {
 // Extra Small Devices
 @media only screen and (max-width: 480px) {
   #lead-content {
+
     h1 {
+      font-size: inherit;
+      font-weight: inherit;
+      margin: 0;
+      line-height: inherit;
+    }
+
+    .main-title {
       font-size: 3em;
     }
 
-    h2 {
+    .subtitle {
       font-size: 2.2em;
     }
 
