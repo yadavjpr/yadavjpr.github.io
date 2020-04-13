@@ -60,6 +60,10 @@ $shadow: 0 20px 30px -12.125px rgba(0, 0, 0, 0.3);
 ---------------------
 */
 
+@mixin transition_short($duration: 0.2s, $func: ease, $property: all) {
+  transition: #{$duration} #{$func} #{$property};
+}
+
 @mixin transition($duration: 0.5s, $func: ease, $property: all) {
   transition: #{$duration} #{$func} #{$property};
 }
@@ -195,6 +199,7 @@ body {
 header {
   position: absolute;
   top: 0;
+  left: 0;
   right: 0;
   text-align: center;
   z-index: 10;
@@ -203,7 +208,21 @@ header {
   animation-timing-function: ease;
   animation-duration: 0.75s;
 
-  ul {
+  #logo {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    top: 18px;
+    left: 20px;
+    z-index: 2;
+    @include transition();
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+
+  #menu {
     // display: inline-block;
     // background: $background;
     color: $white;
@@ -212,29 +231,58 @@ header {
     margin: 0;
     border-bottom-right-radius: 4px;
     border-bottom-left-radius: 4px;
+
+    li {
+      display: inline-block;
+
+      a {
+        display: block;
+        color: $white;
+        padding: 10px;
+        font-size: 0.8em;
+        @include transition_short();
+
+        &:hover {
+          cursor: pointer;
+          color: $base-color-hover !important;
+          text-decoration: none;
+          background: $menu-hover;
+          border-radius: 4px;
+        }
+
+        &:focus {
+          color: $base-color;
+          text-decoration: none;
+        }
+      }
+    }
   }
 
-  li {
-    display: inline-block;
-  }
+  #social {
+    position: absolute;
+    top: 16px;
+    right: 10px;
+    margin: 0;
+    padding: 0;
 
-  a {
-    display: block;
-    color: $white;
-    padding: 10px;
-    font-size: 0.8em;
-
-    &:hover {
-      cursor: pointer;
-      color: $base-color-hover !important;
-      text-decoration: none;
-      background: $menu-hover;
-      border-radius: 4px;
+    li {
+      display: inline-block;
+      font-size: 1.25em;
+      list-style: none;
+      margin: 0;
+      padding: 0;
     }
 
-    &:focus {
-      color: $base-color;
-      text-decoration: none;
+    a {
+      display: block;
+      color: darken($white, 15%);
+      padding-left: 10px;
+      padding-right: 10px;
+      @include transition_short();
+
+      &:hover {
+        color: $white;
+      }
     }
   }
 
@@ -283,6 +331,7 @@ header {
   background: $background-alt;
   font-size: 1.5em;
   padding: 10px;
+  padding-right: 20px;
   cursor: pointer;
   color: $base-color;
   border-bottom: 1px solid $border;
@@ -326,35 +375,6 @@ footer {
 
   i {
     color: $text;
-  }
-}
-
-.social {
-  text-align: left;
-  position: absolute;
-  bottom: 0;
-  display: inherit;
-  right: 0;
-
-  ul {
-    margin: 5px 0 0 0;
-    padding: 0;
-  }
-
-  li {
-    display: inline-block;
-    font-size: 1.25em;
-    list-style: none;
-  }
-
-  a {
-    display: block;
-    color: $text;
-    padding: 10px;
-
-    &:hover {
-      color: $base-color;
-    }
   }
 }
 
@@ -403,7 +423,7 @@ footer {
 #lead {
   position: relative;
   height: 100vh; /* Use vh as a fallback for browsers that do not support Custom Properties */
-  height: calc(var(--vh, 1vh) * 100);
+  // height: calc(var(--vh, 1vh) * 100);
   min-height: 500px;
   max-height: 1080px;
   background: url(../images/lead-bg.jpg);
@@ -1008,7 +1028,7 @@ footer {
     .about-desc {
       padding: 15px;
       padding-top: 30px;
-      padding-bottom: 0;
+      padding-bottom: 30px;
       display: table-cell;
       vertical-align: middle;
     }
@@ -1065,15 +1085,29 @@ footer {
     height: 100%;
     display: none;
 
-    ul {
+    #logo {
+      display: none;
+    }
+
+    #menu {
       display: inline-block;
       background: $background-alt;
       padding: 0;
       box-shadow: $shadow;
+
+      li {
+        display: block;
+      }
     }
 
     a {
       color: $base-color !important;
+    }
+
+    #social {
+      top: 14px;
+      left: 10px;
+      right: auto;
     }
   }
 

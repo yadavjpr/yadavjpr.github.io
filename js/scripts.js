@@ -51,15 +51,15 @@
     $('#mobile-menu-close').click(function () {
         $('header, body').removeClass('active');
         $('header, body').addClass('inactive');
-        setTimeout(function() {
+        setTimeout(function () {
             $('header, body').removeClass('inactive');
         }, 750);
     });
 
-    $('header').click(function() {
+    $('header a').click(function () {
         $('header, body').removeClass('active');
         $('header, body').addClass('inactive');
-        setTimeout(function() {
+        setTimeout(function () {
             $('header, body').removeClass('inactive');
         }, 750);
     });
