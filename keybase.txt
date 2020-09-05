@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/giorgiozem
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://bertolotti.dev
+  * I am giorgiozem (https://keybase.io/giorgiozem) on keybase.
+  * I have a public key ASAY1x2fuejlSZLYe5srj__biHR-hXRmpSspdFTZotzeqAo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "012018d71d9fb9e8e54992d87b9b2b8fffdb88747e857466a52b297454d9a2dcdea80a",
+      "host": "keybase.io",
+      "kid": "012018d71d9fb9e8e54992d87b9b2b8fffdb88747e857466a52b297454d9a2dcdea80a",
+      "uid": "cf7a16a868f53627d1e8b04cc262d319",
+      "username": "giorgiozem"
+    },
+    "merkle_root": {
+      "ctime": 1599307408,
+      "hash": "5acbe8c7fa68edb1bc04c2440033e94137ba3d04f195771cbd1e778d1d57fa8dc222e1cfc5484ef4c2bc675a4a25acf2b5d7efea3b9e44ab5d89491fa8e3e82c",
+      "hash_meta": "ca13eba4922c4890b97f0819fec2579a0c2e510f22506e7c338cf00a6643c271",
+      "seqno": 17482345
+    },
+    "service": {
+      "entropy": "bNsWuFGcBvKGnocBlGwecQc3",
+      "hostname": "bertolotti.dev",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.5.0"
+  },
+  "ctime": 1599307549,
+  "expire_in": 504576000,
+  "prev": "455d7d8b2bdcf7cbcf06ae11f6e77bf3c6d04db1733f78c1e19d49cbb4f9ad9c",
+  "seqno": 11,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgGNcdn7no5UmS2HubK4//24h0foV0ZqUrKXRU2aLc3qgKp3BheWxvYWTESpcCC8QgRV19iyvc98vPBq4R9ud788bQTbFzP3jB4Z1Jy7T5rZzEIO6V7Wxn19pkWFKXieZVvGRsBrgUEcS5+Q7+In3QmOGGAgHCo3NpZ8RA3twaJ73Rmcitnx1fOcDC/o9bHHJHE5eisbaWu81MbYAFmhF0xRU+CK6meGQgQMqEuH6kGVdfz8d9WLg7oDWUCqhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIJhW8LddbuvFYmKsTCvegQOm5rPi+mtDIzmgAHeQ4q/io3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/giorgiozem
+
+==================================================================
