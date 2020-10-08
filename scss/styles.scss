@@ -643,7 +643,7 @@ footer {
   }
 
   p {
-    color: $text;
+    color: lighten($text, 20%);
     font-size: 0.9em;
     margin: 0;
   }
@@ -728,7 +728,7 @@ footer {
   p,
   ul {
     margin: 0;
-    color: $text;
+    color: lighten($text, 20%);
     font-size: 0.9em;
   }
 
