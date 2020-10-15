@@ -378,13 +378,28 @@ footer {
   }
 }
 
-.btn-rounded-black {
+.cv-button {
   color: $text;
   position: absolute;
   right: -1px;
   padding: 5px 15px;
   border: 3px solid $text;
   border-top-right-radius: 15px;
+  @include transition();
+
+  &:hover {
+    color: $white;
+    background: $text;
+    text-decoration: none;
+  }
+}
+
+.btn-rounded-black {
+  color: $text;
+  padding: 5px 15px;
+  border: 3px solid $text;
+  border-radius: 15px;
+  margin-right: 15px;
   @include transition();
 
   &:hover {
@@ -620,7 +635,7 @@ footer {
 .vtimeline-content {
   margin-left: 350px;
   background: $background-alt;
-  padding: 15px;
+  padding: 20px;
   border-radius: 3px;
   text-align: left;
   box-shadow: $shadow;
@@ -697,7 +712,7 @@ footer {
 .education-block {
   max-width: 700px;
   margin: 0 auto 30px auto;
-  padding: 15px;
+  padding: 20px;
   border: 1px solid $border;
   background-color: $background-alt;
   text-align: left;
@@ -735,6 +750,10 @@ footer {
   ul {
     padding: 0 0 0 15px;
   }
+}
+
+.education-button-container {
+  margin-top: 15px;
 }
 
 /*
@@ -1031,6 +1050,21 @@ footer {
       padding-bottom: 30px;
       display: table-cell;
       vertical-align: middle;
+    }
+  }
+
+  .cv-button {
+    position: static;
+    color: $text;
+    padding: 5px 15px;
+    border: 3px solid $text;
+    border-radius: 15px;
+    @include transition();
+
+    &:hover {
+      color: $white;
+      background: $text;
+      text-decoration: none;
     }
   }
 
