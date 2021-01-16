@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: bertolotti.dev
+Token: d1f073705535a139aa5211355bc5248bfcdcb40077a3e5d58b4086190eeda459
