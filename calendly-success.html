@@ -53,14 +53,19 @@
       class="vh-100 w-75 m-auto d-flex justify-content-center align-items-center"
     >
       <div>
-        <h1 id="emoji" class="text-center" data-aos="fade-down">
-          💪
+        <h1 class="text-center" data-aos="fade-down">
+          <i id="emoji" class="em" aria-hidden="true"></i>
         </h1>
         <br />
-        <h2 data-aos="zoom-in">Thanks a lot!<br /></h2>
+        <h2 data-aos="zoom-in">You've booked a meet!<br /></h2>
         <h5 data-aos="fade-up">
-          You can continue supporting my work:<br />
+          You can support my work:<br />
           <ul>
+            <li>
+              <a href="https://www.buymeacoffee.com/GiorgioZem" target="_blank"
+                >Buy me a coffee</a
+              >
+            </li>
             <li>
               Star my projects on
               <a href="https://github.com/GiorgioBertolotti" target="_blank"
@@ -114,13 +119,13 @@
       randomNumber = Math.floor(Math.random() * 4 + 1);
       switch (randomNumber) {
         case 1:
-          $("#emoji").html("😍");
+          $("#emoji").html("💪");
           break;
         case 2:
           $("#emoji").html("🙏🏻");
           break;
         case 3:
-          $("#emoji").html("🤩");
+          $("#emoji").html("🔥");
           break;
         case 4:
           $("#emoji").html("❤️");
