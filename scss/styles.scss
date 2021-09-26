@@ -13,6 +13,7 @@ File Contents:
 10. Contact Styles
 11. Optional Section Styles
 12. Media Queries
+13. Awards styles
 */
 
 /*
@@ -1221,4 +1222,62 @@ footer {
       padding: 5px 10px;
     }
   }
+}
+
+/*
+-------------------------------
+----- 13. Awards Styles -----
+-------------------------------
+*/
+
+#award {
+  padding: 50px 15px 20px 15px;
+  text-align: center;
+}
+
+.award-block {
+  max-width: 700px;
+  margin: 0 auto 30px auto;
+  padding: 20px;
+  border: 1px solid $border;
+  background-color: $background-alt;
+  text-align: left;
+  box-shadow: $shadow;
+  border-radius: 0.25rem;
+
+  h3 {
+    font-size: 1.5em;
+    font-weight: 500;
+    float: left;
+    margin: 0;
+    color: $heading;
+  }
+
+  span {
+    color: $text;
+    float: right;
+  }
+
+  h4 {
+    font-size: 1.2em;
+    color: $text;
+    clear: both;
+    font-weight: 300;
+    margin: 0 0 15px 0;
+  }
+
+  p,
+  ul {
+    margin: 0;
+    color: lighten($text, 20%);
+    font-size: 0.9em;
+  }
+
+  ul {
+    padding: 0 0 0 15px;
+  }
+}
+
+.award-button-container {
+  margin-top: 15px;
 }
