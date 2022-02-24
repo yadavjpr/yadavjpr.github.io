@@ -119,10 +119,6 @@ $shadow: 0 20px 30px -12.125px rgba(0, 0, 0, 0.3);
   background-clip: text;
 }
 
-.card {
-  border: 1px solid $border;
-}
-
 .show-mobile {
   display: none;
 }
@@ -148,7 +144,6 @@ body {
       background: $background;
       padding: 10px;
       margin-bottom: 10px;
-      border: 1px solid $border;
 
       h3 {
         font-size: 1.5em;
@@ -379,26 +374,10 @@ footer {
   }
 }
 
-.cv-button {
-  color: $text;
-  position: absolute;
-  right: -1px;
-  padding: 5px 15px;
-  border: 3px solid $text;
-  border-top-right-radius: 15px;
-  @include transition();
-
-  &:hover {
-    color: $white;
-    background: $text;
-    text-decoration: none;
-  }
-}
-
 .btn-rounded-black {
   color: $text;
   padding: 5px 15px;
-  border: 3px solid $text;
+  border: 1px solid $text;
   border-radius: 15px;
   margin-right: 15px;
   @include transition();
@@ -578,7 +557,6 @@ footer {
     background-color: $white;
     border-radius: 15px;
     box-shadow: $shadow;
-    border: 1px solid $border;
   }
 
   .about-desc-container {
@@ -637,11 +615,9 @@ footer {
   margin-left: 350px;
   background: $background-alt;
   padding: 20px;
-  border-radius: 3px;
+  border-radius: 15px;
   text-align: left;
   box-shadow: $shadow;
-  border-radius: 0.25rem;
-  border: 1px solid $border;
 
   h3 {
     font-size: 1.5em;
@@ -714,11 +690,10 @@ footer {
   max-width: 700px;
   margin: 0 auto 30px auto;
   padding: 20px;
-  border: 1px solid $border;
   background-color: $background-alt;
   text-align: left;
   box-shadow: $shadow;
-  border-radius: 0.25rem;
+  border-radius: 15px;
 
   h3 {
     font-size: 1.5em;
@@ -770,6 +745,23 @@ footer {
   .card {
     box-shadow: $shadow;
     height: 100%;
+    border: none;
+    border-radius: 15px;
+  }
+
+  .card-img-top {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  }
+
+  .list-group {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+
+  .list-group-item {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
   }
 
   .card-link {
@@ -789,7 +781,7 @@ footer {
   margin: 0 auto 30px auto;
   overflow: hidden;
   background: $background;
-  border-radius: 4px;
+  border-radius: 15px;
 }
 
 /*
@@ -913,7 +905,6 @@ footer {
   max-width: 700px;
   margin: 0 auto 30px auto;
   padding: 15px;
-  border: 1px solid $border;
   background: $white;
   text-align: left;
 
@@ -1034,7 +1025,6 @@ footer {
     .about-row {
       background-color: $white;
       border-radius: 15px;
-      border: 1px solid $border;
     }
 
     .about-desc-container {
@@ -1054,26 +1044,11 @@ footer {
     }
   }
 
-  .cv-button {
-    position: static;
-    color: $text;
-    padding: 5px 15px;
-    border: 3px solid $text;
-    border-radius: 15px;
-    @include transition();
-
-    &:hover {
-      color: $white;
-      background: $text;
-      text-decoration: none;
-    }
-  }
-
   .btn-rounded-black {
     position: static;
     color: $text;
     padding: 5px 15px;
-    border: 3px solid $text;
+    border: 1px solid $text;
     border-radius: 15px;
     @include transition();
 
@@ -1165,7 +1140,6 @@ footer {
   }
 
   #lead-content {
-
     h1 {
       font-size: inherit;
       font-weight: inherit;
@@ -1180,7 +1154,7 @@ footer {
     .subtitle {
       font-size: 1.3em;
     }
-    
+
     a {
       padding: 10px 20px;
     }
@@ -1201,7 +1175,6 @@ footer {
 // Extra Small Devices
 @media only screen and (max-width: 480px) {
   #lead-content {
-
     h1 {
       font-size: inherit;
       font-weight: inherit;
@@ -1239,11 +1212,10 @@ footer {
   max-width: 700px;
   margin: 0 auto 30px auto;
   padding: 20px;
-  border: 1px solid $border;
   background-color: $background-alt;
   text-align: left;
   box-shadow: $shadow;
-  border-radius: 0.25rem;
+  border-radius: 15px;
 
   h3 {
     font-size: 1.5em;
