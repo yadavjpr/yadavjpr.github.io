@@ -473,6 +473,18 @@ footer {
     font-size: 2.25em;
     margin-bottom: 15px;
     display: block;
+
+    a {
+      font-weight: bold;
+      color: $accent-color;
+      text-decoration: none;
+      @include transition();
+    }
+
+    a:hover {
+      color: darken($heading, 10%);
+      text-decoration: none;
+    }
   }
 }
 
