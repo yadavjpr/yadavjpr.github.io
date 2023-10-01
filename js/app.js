@@ -1,82 +1,76 @@
-// app.js
-$(document).ready(function () {
-    // Load family tree data
-    $.getJSON('js/family-tree-data.json', function (data) {
-        // Generate family tree HTML
-        var familyTreeHtml = generateFamilyTreeHtml(data);
-        
-        // Append HTML to the familyTree div
-        $('#familyTree').append(familyTreeHtml);
-        
-        // Click event on family member
-        $('.family-member').on('click', function () {
-            var memberId = $(this).data('id');
-            showMemberDetails(data, memberId);
-        });
-    });
-
-    // Function to generate family tree HTML
-    function generateFamilyTreeHtml(person) {
-        var html = '<ul class="list-group">';
-        html += '<li class="list-group-item family-member" data-id="0">' + person.name + '</li>';
-
-        if (person.children && person.children.length > 0) {
-            html += '<ul class="list-group mt-2">';
-            $.each(person.children, function (index, child) {
-                html += '<li class="list-group-item family-member" data-id="' + (index + 1) + '">' + child.name + '</li>';
-            });
-            html += '</ul>';
+const familyTreeData = {
+    name: "John",
+    age: 45,
+    gender: "Male",
+    profilePic: "john.jpg",
+    profileDescription: "Loving husband and father",
+    occupations: ["Engineer"],
+    spouse: "Jane",
+    children: [
+        {
+            name: "Alice",
+            age: 18,
+            gender: "Female",
+            profilePic: "alice.jpg",
+            profileDescription: "Aspiring artist",
+            occupations: ["Student"]
+        },
+        {
+            name: "Bob",
+            age: 15,
+            gender: "Male",
+            profilePic: "bob.jpg",
+            profileDescription: "Sports enthusiast",
+            occupations: ["Student"]
         }
+    ]
+};
 
-        html += '</ul>';
-        return html;
-    }
+// Function to build the family tree using D3.js
+function buildFamilyTree(data) {
+    const svg = d3.select("#family-tree")
+        .append("svg")
+        .attr("width", "100%")
+        .attr("height", "100%")
+        .attr("viewBox", [0, 0, 800, 500])
+        .attr("preserveAspectRatio", "xMidYMid meet");
 
-    // Function to show family member details
-    function showMemberDetails(data, memberId) {
-        var member = findMemberById(data, memberId);
-        if (member) {
-            var detailsHtml = '<div class="card">';
-            detailsHtml += '<img src="' + member.profilePic + '" class="card-img-top" alt="' + member.name + '">';
-            detailsHtml += '<div class="card-body">';
-            detailsHtml += '<h5 class="card-title">' + member.name + '</h5>';
-            detailsHtml += '<p>Age: ' + member.age + '</p>';
-            detailsHtml += '<p>Gender: ' + member.gender + '</p>';
-            detailsHtml += '<p>Occupations: ' + member.occupations.join(', ') + '</p>';
-            detailsHtml += '<p>Spouse: ' + (member.spouse || 'N/A') + '</p>';
-            detailsHtml += '<p>Children: ' + (member.children ? member.children.map(child => child.name).join(', ') : 'N/A') + '</p>';
-            detailsHtml += '<p>' + member.profileDescription + '</p>';
-            detailsHtml += '</div></div>';
+    const treeLayout = d3.tree().size([800, 500]);
 
-            // Hide family tree and show detail page
-            $('#familyTree').addClass('d-none');
-            $('#detailPage').removeClass('d-none');
-            $('#memberDetails').html(detailsHtml);
-        }
-    }
+    const root = d3.hierarchy(data);
+    const treeData = treeLayout(root);
 
-    // Function to find a family member by ID
-    function findMemberById(person, memberId) {
-        if (memberId === 0) {
-            return person;
-        }
+    const links = svg.selectAll(".link")
+        .data(treeData.links())
+        .enter().append("path")
+        .attr("class", "link")
+        .attr("d", d3.linkHorizontal()
+            .x(d => d.y)
+            .y(d => d.x));
 
-        if (person.children && person.children.length > 0) {
-            for (var i = 0; i < person.children.length; i++) {
-                var result = findMemberById(person.children[i], memberId - 1);
-                if (result) {
-                    return result;
-                }
-            }
-        }
+    const nodes = svg.selectAll(".node")
+        .data(treeData.descendants())
+        .enter().append("g")
+        .attr("class", "node")
+        .attr("transform", d => `translate(${d.y},${d.x})`);
 
-        return null;
-    }
+    nodes.append("circle")
+        .attr("r", 10)
+        .attr("fill", "#3498db");
 
-    // Function to go back to the family tree
-    window.goBack = function () {
-        // Show family tree and hide detail page
-        $('#familyTree').removeClass('d-none');
-        $('#detailPage').addClass('d-none');
-    };
+    nodes.append("text")
+        .attr("dy", "0.31em")
+        .attr("x", d => d.children ? -10 : 10)
+        .style("text-anchor", d => d.children ? "end" : "start")
+        .text(d => d.data.name)
+        .on("click", showMemberDetails);
+}
+
+function showMemberDetails(member) {
+    // Display member details in a modal or a separate page
+    console.log("Member Details:", member.data);
+}
+
+window.addEventListener("load", () => {
+    buildFamilyTree(familyTreeData);
 });
