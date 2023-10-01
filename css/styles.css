@@ -1,35 +1,26 @@
-/* styles.css */
-/* Style the family tree */
-#familyTree {
-    padding: 20px;
-    background-color: #f8f9fa;
-    border: 1px solid #dee2e6;
-    border-radius: 5px;
-    height: 500px;
-    overflow-y: scroll;
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-.family-member {
-    cursor: pointer;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    margin: 5px;
+header {
+    background-color: #3498db;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+main {
+    height: 500px; /* Set a fixed height for the family tree container */
+}
+
+footer {
+    background-color: #3498db;
+    color: #fff;
+    text-align: center;
     padding: 10px;
-    border-radius: 5px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
-
-.family-member:hover {
-    background-color: #f0f0f0;
-}
-
-/* Style the detail page */
-#detailPage {
-    padding: 20px;
-    background-color: #f8f9fa;
-    border: 1px solid #dee2e6;
-    border-radius: 5px;
-    height: 500px;
-    overflow-y: scroll;
-}
-
-/* Add more custom styles as needed */
