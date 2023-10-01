@@ -1,0 +1,35 @@
+/* styles.css */
+/* Style the family tree */
+#familyTree {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    height: 500px;
+    overflow-y: scroll;
+}
+
+.family-member {
+    cursor: pointer;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.family-member:hover {
+    background-color: #f0f0f0;
+}
+
+/* Style the detail page */
+#detailPage {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    height: 500px;
+    overflow-y: scroll;
+}
+
+/* Add more custom styles as needed */
