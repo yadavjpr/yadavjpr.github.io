@@ -1,7 +1,7 @@
 // app.js
 $(document).ready(function () {
     // Load family tree data
-    $.getJSON('family-tree-data.json', function (data) {
+    $.getJSON('js/family-tree-data.json', function (data) {
         // Generate family tree HTML
         var familyTreeHtml = generateFamilyTreeHtml(data);
         
