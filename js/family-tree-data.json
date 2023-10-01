@@ -1,0 +1,65 @@
+{
+  "name": "Grandpa",
+  "age": 70,
+  "gender": "Male",
+  "profilePic": "grandpa.jpg",
+  "profileDescription": "Loving grandfather and patriarch of the family.",
+  "occupations": ["Retired"],
+  "spouse": "Grandma",
+  "children": [
+    {
+      "name": "Dad",
+      "age": 45,
+      "gender": "Male",
+      "profilePic": "dad.jpg",
+      "profileDescription": "Hardworking father and provider.",
+      "occupations": ["Engineer"],
+      "spouse": "Mom",
+      "children": [
+        {
+          "name": "Son1",
+          "age": 25,
+          "gender": "Male",
+          "profilePic": "son1.jpg",
+          "profileDescription": "Ambitious young man with a passion for technology.",
+          "occupations": ["Software Developer"]
+        },
+        {
+          "name": "Daughter1",
+          "age": 22,
+          "gender": "Female",
+          "profilePic": "daughter1.jpg",
+          "profileDescription": "Creative and artistic young woman.",
+          "occupations": ["Student"]
+        }
+      ]
+    },
+    {
+      "name": "Uncle",
+      "age": 40,
+      "gender": "Male",
+      "profilePic": "uncle.jpg",
+      "profileDescription": "Adventurous uncle with a love for travel.",
+      "occupations": ["Travel Blogger"],
+      "spouse": "Aunt",
+      "children": [
+        {
+          "name": "Cousin1",
+          "age": 18,
+          "gender": "Male",
+          "profilePic": "cousin1.jpg",
+          "profileDescription": "High school student with a passion for sports.",
+          "occupations": ["Student"]
+        },
+        {
+          "name": "Cousin2",
+          "age": 15,
+          "gender": "Female",
+          "profilePic": "cousin2.jpg",
+          "profileDescription": "Aspiring musician and animal lover.",
+          "occupations": ["Student"]
+        }
+      ]
+    }
+  ]
+}
