@@ -67,9 +67,43 @@ function buildFamilyTree(data) {
 }
 
 function showMemberDetails(member) {
-    // Display member details in a modal or a separate page
-    console.log("Member Details:", member.data);
+    // Create a modal container
+    const modalContainer = document.createElement("div");
+    modalContainer.classList.add("modal-container");
+
+    // Create modal content
+    const modalContent = document.createElement("div");
+    modalContent.classList.add("modal-content");
+
+    // Add member details to modal content
+    modalContent.innerHTML = `
+        <img src="${member.data.profilePic}" alt="${member.data.name}" class="modal-profile-pic">
+        <h2>${member.data.name}</h2>
+        <p>Age: ${member.data.age}</p>
+        <p>Gender: ${member.data.gender}</p>
+        <p>Description: ${member.data.profileDescription}</p>
+        <p>Occupations: ${member.data.occupations.join(", ")}</p>
+        <p>Spouse: ${member.data.spouse || 'N/A'}</p>
+        <p>Children: ${member.data.children.map(child => child.name).join(", ") || 'N/A'}</p>
+    `;
+
+    // Add modal content to modal container
+    modalContainer.appendChild(modalContent);
+
+    // Add modal container to the document body
+    document.body.appendChild(modalContainer);
+
+    // Close modal when clicking outside of it
+    modalContainer.addEventListener("click", () => {
+        document.body.removeChild(modalContainer);
+    });
+
+    // Prevent modal from closing when clicking inside it
+    modalContent.addEventListener("click", (event) => {
+        event.stopPropagation();
+    });
 }
+
 
 window.addEventListener("load", () => {
     buildFamilyTree(familyTreeData);
