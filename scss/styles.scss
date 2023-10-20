@@ -23,13 +23,13 @@ File Contents:
 */
 
 @font-face {
-  font-family: TheSecret;
-  src: url(../webfonts/TheSecret-Regular.otf);
+  font-family: Inter;
+  src: url(../webfonts/Inter.ttf);
 }
 
 @font-face {
-  font-family: Roboto;
-  src: url(../webfonts/Roboto-Regular.ttf);
+  font-family: TheSecret;
+  src: url(../webfonts/TheSecret-Regular.otf);
 }
 
 // Define base and accent colors
@@ -129,7 +129,7 @@ $shadow: 0 20px 30px -12.125px rgba(0, 0, 0, 0.3);
 
 body {
   background-color: $background;
-  font: 16px Roboto, sans-serif;
+  font: 16px Helvetica, 'Helvetica Neue', Inter, Arial, sans-serif;
 
   &.active {
     overflow: hidden;
@@ -235,7 +235,7 @@ header {
         display: block;
         color: $white;
         padding: 10px;
-        font-size: 0.8em;
+        font-size: 1em;
         @include transition_short();
 
         &:hover {
@@ -400,7 +400,7 @@ footer {
 .heading {
   position: relative;
   display: inline-block;
-  font: 7em TheSecret, arial, sans-serif;
+  font: 7em TheSecret, Arial, sans-serif;
   width: 100%;
   color: $heading;
 }
@@ -477,13 +477,13 @@ footer {
     a {
       font-weight: bold;
       color: $accent-color;
-      text-decoration: none;
+      text-decoration: underline;
+      text-underline-offset: 6px;
       @include transition();
     }
 
     a:hover {
       color: darken($heading, 10%);
-      text-decoration: none;
     }
   }
 }
@@ -561,8 +561,8 @@ footer {
     z-index: 1;
     border-bottom-left-radius: 15px;
     border-top-left-radius: 15px;
-    width: 250px;
-    height: 250px;
+    width: 296px;
+    height: 296px;
   }
 
   .about-row {
@@ -573,12 +573,18 @@ footer {
 
   .about-desc-container {
     display: table;
-    height: 250px;
+    height: 296px;
+    padding-top: 24px;
+    padding-bottom: 24px;
   }
 
   .about-desc {
     display: table-cell;
     vertical-align: middle;
+
+    a {
+      color: darken($accent-color, 10%);
+    }
   }
 }
 
