@@ -675,11 +675,12 @@ footer {
   float: left;
   z-index: 99;
   margin-left: 280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   i {
-    display: block;
-    font-size: 2em;
-    margin-top: 10px;
+    font-size: 1.6em;
   }
 }
 
