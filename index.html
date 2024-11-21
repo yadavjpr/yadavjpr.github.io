@@ -163,7 +163,7 @@
             data-aos="zoom-in"
             data-aos-delay="150"
           >
-            <div class="card m-auto" style="width: 18rem">
+            <div class="card m-auto">
               <img
                 src="images/alfredo.jpg"
                 class="card-img-top"
@@ -194,7 +194,7 @@
             data-aos="zoom-in"
             data-aos-delay="150"
           >
-            <div class="card m-auto" style="width: 18rem">
+            <div class="card m-auto">
               <img
                 src="images/nursing-shifts.jpeg"
                 class="card-img-top"
@@ -222,7 +222,7 @@
             </div>
           </div>
           <div class="col-md-4 col-lg-4 p-3" data-aos="zoom-in">
-            <div class="card m-auto" style="width: 18rem">
+            <div class="card m-auto">
               <img
                 src="images/safetravel.jpg"
                 class="card-img-top"
@@ -252,7 +252,7 @@
         </div>
         <div class="row">
           <div class="col-md-4 col-lg-4 p-3" data-aos="zoom-in">
-            <div class="card m-auto" style="width: 18rem">
+            <div class="card m-auto">
               <img
                 src="images/beelder.jpg"
                 class="card-img-top"
@@ -280,7 +280,7 @@
             </div>
           </div>
           <div class="col-md-4 col-lg-4 p-3" data-aos="zoom-in">
-            <div class="card m-auto" style="width: 18rem">
+            <div class="card m-auto">
               <img
                 src="images/pwswatcher.jpg"
                 class="card-img-top"
@@ -333,6 +333,22 @@
     <div id="experience" class="background-alt" data-scroll-index="3">
       <h2 class="heading inset">Experiences</h2>
       <div id="experience-timeline">
+        <div data-date="Since October 2024" data-aos="zoom-in">
+          <a
+            title="Mastranet AI"
+            aria-label="Mastranet AI"
+            href="https://www.mastranet.ai/"
+            target="_blank"
+          >
+            <h3>Mastranet AI</h3>
+          </a>
+          <h4>Freelance Frontend Developer</h4>
+          <p>
+            I have the pleasure of supporting Luca and Emanuele (friends, before
+            collaborators) with the frontend development of their industrial
+            troubleshooting software Mira (https://www.mastranet.ai/mira/).
+          </p>
+        </div>
         <div data-date="Since January 2024" data-aos="zoom-in">
           <a
             title="Customerly"
@@ -352,7 +368,7 @@
             level.
           </p>
         </div>
-        <div data-date="Since October 2023" data-aos="zoom-in">
+        <div data-date="October 2023 - August 2024" data-aos="zoom-in">
           <a
             title="SuperUrbanity"
             aria-label="SuperUrbanity"
@@ -591,40 +607,6 @@
     </div>
     <!-- End #awards -->
 
-    <div id="contact" data-scroll-index="6">
-      <h2>Get in Touch</h2>
-      <div id="contact-form">
-        <form
-          method="POST"
-          action="https://formspree.io/giorgio@bertolotti.dev"
-        >
-          <input
-            type="hidden"
-            name="_subject"
-            value="Contact request from personal website"
-          />
-          <label for="email" class="text-white">E-mail address:</label>
-          <input
-            id="email"
-            type="email"
-            name="_replyto"
-            placeholder="Email"
-            required
-          />
-          <label for="message" class="text-white">Message to send:</label>
-          <textarea
-            id="message"
-            name="message"
-            placeholder="Message"
-            required
-          ></textarea>
-          <button type="submit">Send</button>
-        </form>
-      </div>
-      <!-- End #contact-form -->
-    </div>
-    <!-- End #contact -->
-
     <footer>
       <div class="container">Copyright &copy; 2024 Giorgio Bertolotti</div>
     </footer>
@@ -643,5 +625,58 @@
         "https://gravatar.com/avatar/" + emailHash + "?s=400"
       );
     </script>
+    <!-- Customerly Live Chat Snippet Code -->
+    <script>
+      !(function () {
+        var e = window,
+          i = document,
+          t = "customerly",
+          n = "queue",
+          o = "load",
+          r = "settings",
+          u = (e[t] = e[t] || []);
+        if (u.t) {
+          return void u.i(
+            "[customerly] SDK already initialized. Snippet included twice."
+          );
+        }
+        u.t = !0;
+        u.loaded = !1;
+        u.o = ["event", "attribute", "update", "show", "hide", "open", "close"];
+        u[n] = [];
+        u.i = function (t) {
+          e.console && !u.debug && console.error && console.error(t);
+        };
+        u.u = function (e) {
+          return function () {
+            var t = Array.prototype.slice.call(arguments);
+            return t.unshift(e), u[n].push(t), u;
+          };
+        };
+        u[o] = function (t) {
+          u[r] = t || {};
+          if (u.loaded) {
+            return void u.i(
+              "[customerly] SDK already loaded. Use customerly.update to change settings."
+            );
+          }
+          u.loaded = !0;
+          var e = i.createElement("script");
+          (e.type = "text/javascript"),
+            (e.async = !0),
+            (e.src = "https://messenger.customerly.io/launcher.js");
+          var n = i.getElementsByTagName("script")[0];
+          n.parentNode.insertBefore(e, n);
+        };
+        u.o.forEach(function (t) {
+          u[t] = u.u(t);
+        });
+      })();
+
+      customerly.load({
+        app_id: "45c4a78a",
+      });
+    </script>
+    <!-- End of Customerly Live Chat Snippet Code -->
   </body>
 </html>
